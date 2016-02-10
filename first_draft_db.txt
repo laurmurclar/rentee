@@ -1,0 +1,7 @@
+renter(id, f_name, l_name, phone_number, email, password, smoker, pet_owner, references_available, occupation, bio);
+landlord(id, f_name, l_name, phone_number, email, password);
+admin(id, name, email, password);
+property(id, address, landlord_id, rent, n_baths,rent_allowance,PTRB);
+bed(id, type, property_id, available);
+match(renter_id, property_id);
+amenity(id, name, property_id);
