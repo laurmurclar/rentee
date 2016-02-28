@@ -19,7 +19,8 @@
   <author email="cihegart@tcd.ie">
       Ciaran Hegarty
   </author>
-  <content src="index.html"/>
+  <!--<content src="index.html"/>-->
+  <content src="login.html"/>
   <access origin="*"/>
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
