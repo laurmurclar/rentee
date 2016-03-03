@@ -3,7 +3,16 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic'])
+angular.module('rentee', ['ionic', 'rentee.controllers', 'ng-token-auth'])
+  .config(function($authProvider) {
+    $authProvider.configure([{
+      tenant: {
+        apiUrl: 'https://rentee-api.herokuapp.com',
+        emailSignInPath:       '/t_auth/sign_in',
+        emailRegistrationPath: '/t_auth'
+      }
+    }]);
+  })
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -22,3 +31,22 @@ angular.module('starter', ['ionic'])
     }
   });
 })
+.constant('config', {
+  BACKEND_URL: 'https://rentee-api.herokuapp.com'
+})
+.config(function($stateProvider, $urlRouterProvider) {
+  $urlRouterProvider.otherwise('/login');
+
+  $stateProvider.state('register', {
+    url: '/register',
+    controller: 'RegisterCtrl',
+    templateUrl: 'templates/register.html'
+  })
+  .state('login', {
+    url: '/login',
+    controller: 'LoginCtrl',
+    templateUrl: 'templates/login.html'
+  });
+});
+
+angular.module('rentee.controllers', []);
