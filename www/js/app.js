@@ -11,6 +11,12 @@ angular.module('rentee', ['ionic', 'rentee.controllers', 'ng-token-auth'])
         emailSignInPath:       '/t_auth/sign_in',
         emailRegistrationPath: '/t_auth'
       }
+    },{
+      landlord: {
+        apiUrl: 'https://rentee-api.herokuapp.com',
+        emailSignInPath:       '/l_auth/sign_in',
+        emailRegistrationPath: '/l_auth'
+      }
     }]);
   })
 

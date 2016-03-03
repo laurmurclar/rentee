@@ -1,14 +1,14 @@
 angular.module('rentee.controllers')
   .controller('LoginCtrl', function($scope, $auth) {
 
-    $scope.handleLoginBtnClick = function(form) {
+    $scope.handleLoginBtnClick = function(form, choice) {
       console.log("Yes");
 
       $auth.submitLogin({
         email:                 form.email,
         password:              form.password
       },{
-        config: 'tenant'
+        config: choice
       })
       .then(function(resp) {
         // handle success response
