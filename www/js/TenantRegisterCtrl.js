@@ -1,5 +1,5 @@
 angular.module('rentee.controllers')
-  .controller('RegisterCtrl', function($scope, $auth) {
+  .controller('TenantRegisterCtrl', function($scope, $auth) {
     $scope.handleRegBtnClick = function(form) {
       $auth.submitRegistration(
       {
