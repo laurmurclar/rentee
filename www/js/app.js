@@ -57,6 +57,11 @@ angular.module('rentee', ['ionic', 'rentee.controllers', 'ng-token-auth'])
     url: '/register-choice',
     templateUrl: 'templates/register-choice.html'
   })
+  .state('tenant-profile', {
+    url: '/tenant-profile',
+    controller: 'TenantProfileCtrl',
+    templateUrl: 'templates/tenant-profile.html'
+  })
   .state('login', {
     url: '/login',
     controller: 'LoginCtrl',
@@ -64,4 +69,4 @@ angular.module('rentee', ['ionic', 'rentee.controllers', 'ng-token-auth'])
   });
 });
 
-angular.module('rentee.controllers', []);
+angular.module('rentee.controllers', ['$state']);

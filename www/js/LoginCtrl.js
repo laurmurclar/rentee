@@ -1,5 +1,5 @@
 angular.module('rentee.controllers')
-  .controller('LoginCtrl', function($scope, $auth) {
+  .controller('LoginCtrl', function($scope, $auth, $state) {
 
     $scope.handleLoginBtnClick = function(form, choice) {
       console.log("Yes");
@@ -10,9 +10,13 @@ angular.module('rentee.controllers')
       },{
         config: choice
       })
-      .then(function(resp) {
+      .then(function(resp, $state) {
         // handle success response
-        console.log("Yes");
+        var user = resp.data;
+        // store response using local storage
+        window.localStorage['user'] = JSON.stringify(user);
+        $state.go('tenant-profile');
+
       })
       .catch(function(resp) {
         // handle error response
