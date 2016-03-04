@@ -10,7 +10,7 @@ angular.module('rentee.controllers')
       },{
         config: choice
       })
-      .then(function(resp, $state) {
+      .then(function(resp) {
         // handle success response
         var user = resp.data;
         // store response using local storage

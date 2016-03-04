@@ -69,4 +69,4 @@ angular.module('rentee', ['ionic', 'rentee.controllers', 'ng-token-auth'])
   });
 });
 
-angular.module('rentee.controllers', ['$state']);
+angular.module('rentee.controllers', []);
