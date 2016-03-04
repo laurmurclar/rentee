@@ -43,10 +43,19 @@ angular.module('rentee', ['ionic', 'rentee.controllers', 'ng-token-auth'])
 .config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/login');
 
-  $stateProvider.state('register', {
-    url: '/register',
-    controller: 'RegisterCtrl',
-    templateUrl: 'templates/register.html'
+  $stateProvider.state('landlord-register', {
+    url: '/landlord-register',
+    controller: 'LandlordRegisterCtrl',
+    templateUrl: 'templates/landlord-register.html'
+  })
+  .state('tenant-register', {
+    url: '/tenant-register',
+    controller: 'TenantRegisterCtrl',
+    templateUrl: 'templates/tenant-register.html'
+  })
+  .state('register-choice', {
+    url: '/register-choice',
+    templateUrl: 'templates/register-choice.html'
   })
   .state('login', {
     url: '/login',
