@@ -15,7 +15,14 @@ angular.module('rentee.controllers')
         var user = resp.data;
         // store response using local storage
         window.localStorage['user'] = JSON.stringify(user);
+
+        for (var key in localStorage) {
+           console.log(key + ':' + localStorage[key]);
+        }
+
         $state.go('tenant-profile');
+
+        //$state.go('landlord-profile');
 
       })
       .catch(function(resp) {
