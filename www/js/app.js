@@ -62,6 +62,16 @@ angular.module('rentee', ['ionic', 'rentee.controllers', 'ng-token-auth'])
     controller: 'TenantProfileCtrl',
     templateUrl: 'templates/tenant-profile.html'
   })
+  .state('landlord-profile', {
+    url: '/landlord-profile',
+    controller: 'LandlordProfileCtrl',
+    templateUrl: 'templates/landlord-profile.html'
+  })
+  .state('property-register', {
+    url: '/property-register',
+    controller: 'ProprtyRegisterCtl',
+    templateURL: 'templates/property-register.html'
+  })
   .state('login', {
     url: '/login',
     controller: 'LoginCtrl',

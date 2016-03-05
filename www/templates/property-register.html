@@ -1,0 +1,26 @@
+<ion-view view-title="Create Property" name="Property-Register-view">
+  <ion-content class="padding">
+      <div class="list list-inset" ng-init="propertyForm = {}">
+          <label class="item item-input">
+              <input type="text" placeholder="Address" ng-model="propertyForm.address"> 
+          </label>
+          <label class="item item-input">
+              <input type="number" placeholder="Rent" ng-model="propertyForm.rent">
+          </label>
+          <label class="item item-input">
+              <input type="number" placeholder="Number of Baths" ng-model="propertyForm.n_baths">
+          </label>
+          <label class="item item-input">
+              <input type="radio" placeholder="Rent-Allowance" ng-model="propertyForm.rent_allowance">
+          </label>
+          <label class="item item-input">
+              <input type="radio" placeholder="PTRB" ng-model="propertyForm.ptrb">
+          </label>
+          <label class="item item-input">
+              <input type="number" placeholder="Number of Beds" ng-model="propertyForm.n_beds">
+          </label>
+      </div>
+      <button class="button button-block button-calm" ng-click="handleRegBtnClick(propertyForm)">Create</button> 
+      <!-- //need to change where it gets sent to -->
+  </ion-content>
+</ion-view>
