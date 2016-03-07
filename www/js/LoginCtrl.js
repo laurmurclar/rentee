@@ -10,22 +10,23 @@ angular.module('rentee.controllers')
       },{
         config: choice
       })
-      .then(function(resp) {
+      .then(function(sign_in) {
         // handle success response
-        var user = resp.data;
+        var user = sign_in;
         // store response using local storage
         window.localStorage['user'] = JSON.stringify(user);
+        //localStorage.setItem('user', JSON.stringify(resp.data));
 
-        for (var key in localStorage) {
-           console.log(key + ':' + localStorage[key]);
-        }
+        var userTemp = JSON.parse(window.localStorage['user'] || '{}');
+        console.log(JSON.stringify(userTemp));
 
-        $state.go('tenant-profile');
+        var configName = userTemp['configName'];
+        console.log(configName);
 
-        //$state.go('landlord-profile');
-
+        if (userTemp.configName === "tenant") $state.go('tenant-profile');
+        else if (userTemp.configName === "landlord ") $state.go('landlord-profile');
       })
-      .catch(function(resp) {
+      .catch(function(sign_in) {
         // handle error response
         console.log("No");
       });
