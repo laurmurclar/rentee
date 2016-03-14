@@ -15,11 +15,11 @@ angular.module('rentee.controllers')
       })
         .then(function(resp) {
           // handle success response
-          console.log("yay");
+          console.log("works");
         })
         .catch(function(resp) {
           // handle error response
-          console.log("nay");
+          console.log("is poo");
         });
     };
   });
