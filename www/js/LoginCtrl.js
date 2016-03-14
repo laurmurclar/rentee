@@ -24,7 +24,7 @@ angular.module('rentee.controllers')
         console.log(configName);
 
         if (userTemp.configName === "tenant") $state.go('tenant-profile');
-        else if (userTemp.configName === "landlord ") $state.go('landlord-profile');
+        else if (userTemp.configName === "landlord") $state.go('landlord-profile');
       })
       .catch(function(sign_in) {
         // handle error response
