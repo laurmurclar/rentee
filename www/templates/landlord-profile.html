@@ -1,17 +1,19 @@
 <ion-view view-title="Landlord Profile" name="landlord-profile">
   <ion-content class="padding">
+        <div class="profile-card text-center">
+        <img class="img" src="/img/cover.jpg">
+                <div class="profile-info">
+                  <img class="profile-pic" src="/img/profile.jpg">
+                  <h2 class="hvr-underline-from-center">{{user.f_name}} {{user.l_name}}<span>{{user.email}}</span></h2>
+                  <div>Test output {{user}}</div>
+                  <a href="http://www.twitter.com"><i class="ion-social-twitter"></i></a>
+                  <a href="mailto:burnsm3@tcd.ie"><i class="ion-ios-email"></i></a>
+                  <a href="http://www.facebook.com"><i class="ion-social-facebook"></i></a>
+                </div>
+        </div>
 
-    <h1>Name</h1>
-    <h2>{{user.f_name}} {{user.l_name}}</h2>
-
-    <h1>Number</h1>
-    <h2>need to add in</h2>
-
-    <h1>Email</h1>
-    <h2>{{user.email}}</h2>
-
-    <h3>Test output {{user}}</h3>
     <button class="button button-block button-calm" ui-sref="property-register">Add a Property</button>
     <button class="button button-block button-calm" ui-sref="view-properties">View Properties</button>
+    <button class="button button-block button-calm" ui-sref="landlord-editProfile">Edit Profile</button>
    </ion-content>
 </ion-view>
