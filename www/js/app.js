@@ -70,7 +70,7 @@ angular.module('rentee', ['ionic', 'rentee.controllers', 'ng-token-auth'])
   .state('property-register', {
     url: '/property-register',
     controller: 'PropertyRegisterCtrl',
-    templateURL: 'templates/property-register.html'
+    templateUrl: 'templates/property-register.html'
   })
   .state('login', {
     url: '/login',

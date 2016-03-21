@@ -1,26 +1,22 @@
-<ion-view view-title="Create Property" name="Property-Register-view">
+<ion-view view-title="Property Register" name="property-register-view">
   <ion-content class="padding">
-      <div class="list list-inset" ng-init="propertyForm = {}">
+      <div class="list list-inset" ng-init="registrationForm = {}">
           <label class="item item-input">
-              <input type="text" placeholder="Address" ng-model="propertyForm.address"> 
+              <input type="text" placeholder="Address" ng-model="registrationForm.f_address">
           </label>
           <label class="item item-input">
-              <input type="number" placeholder="Rent" ng-model="propertyForm.rent">
+              <input type="number" placeholder="Rent" ng-model="registrationForm.f_rent">
           </label>
           <label class="item item-input">
-              <input type="number" placeholder="Number of Baths" ng-model="propertyForm.n_baths">
+              <input type="number" placeholder="Number of Baths" ng-model="registrationForm.n_baths">
           </label>
           <label class="item item-input">
-              <input type="radio" placeholder="Rent-Allowance" ng-model="propertyForm.rent_allowance">
+              <input type="text" placeholder="Rent Allowance" ng-model="registrationForm.rent_allowance">
           </label>
           <label class="item item-input">
-              <input type="radio" placeholder="PTRB" ng-model="propertyForm.ptrb">
-          </label>
-          <label class="item item-input">
-              <input type="number" placeholder="Number of Beds" ng-model="propertyForm.n_beds">
+              <input type="text" placeholder="PTRB" ng-model="registrationForm.ptrb">
           </label>
       </div>
-      <button class="button button-block button-calm" ng-click="handleRegBtnClick(propertyForm)">Create</button> 
-      <!-- //need to change where it gets sent to -->
+      <button class="button button-block button-calm" ng-click="handleRegBtnClick(registrationForm)">Register</button>
   </ion-content>
 </ion-view>
