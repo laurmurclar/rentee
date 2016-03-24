@@ -4,7 +4,6 @@ angular.module('rentee.controllers')
       $auth.submitRegistration(
       {
         address:                form.address,
-        // landlord_id:            form.landlord_id, uses landlords id?
         rent:                   form.rent,
         n_baths:                form.n_baths,
         retn_allowance:         form.rent_allowance,
