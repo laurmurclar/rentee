@@ -22,5 +22,5 @@ angular.module('rentee.controllers')
           console.log("nay");
         });
 */
-    };
+    
   });

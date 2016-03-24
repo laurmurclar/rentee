@@ -59,6 +59,7 @@ angular.module('rentee', ['ionic', 'rentee.controllers', 'ng-token-auth'])
   })
   .state('search-settings', {
     url: '/search-settings',
+    controller: 'SearchSettingsCtrl',
     templateUrl: 'templates/search-settings.html'
   })
   .state('tenant-profile', {

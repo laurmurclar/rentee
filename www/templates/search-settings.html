@@ -2,10 +2,10 @@
   <ion-content class="padding">
       <div class="list list-inset" ng-init="registrationForm = {}">
           <label class="item item-input">
-              <input type="text" placeholder="Area" ng-model="registrationForm.area">
+              <input type="text" placeholder="Town" ng-model="registrationForm.town">
           </label>
           <label class="item item-input">
-              <input type="range" placeholder="Distance From Named Area" ng-model="registrationForm.distance">
+              <input type="text" placeholder="County" ng-model="registrationForm.county">
 <!-- Dunno how to put number at either end if slider-->
           </label>
           <label class="item item-input">
@@ -14,7 +14,17 @@
           <label class="item item-input">
               <input type="number" placeholder="Number of Baths" ng-model="registrationForm.n_baths">
           </label>
-<!--           can add more if we need to  -->
+          <label class="item item-input">
+             <!-- <input type="radio" placeholder="Rent Allowance" ng-model="registrationForm.rent_allowance"><!--how make yes/no thing or button -->
+              <ion-radio ng-model="registrationForm.rent_allowance" ng-value="'true'">Rent Allowance</ion-radio>
+              <ion-radio ng-model="registrationForm.rent_allowance" ng-value="'false'">No Rent Allowance Accepted</ion-radio>
+          </label>
+          <label class="item item-input">
+              <!--<input type="text" placeholder="PTRB" ng-model="registrationForm.ptrb">-->
+              <ion-radio ng-model="registrationForm.ptrb" ng-value="'true'">Rent Allowance</ion-radio>
+              <ion-radio ng-model="registrationForm.ptrb" ng-value="'false'">No Rent Allowance Accepted</ion-radio>
+          </label>
+      <button class="button button-block button-calm" ng-click="handleRegBtnClick(registrationForm)">Search</button>
       </div>
   </ion-content>
 </ion-view>
