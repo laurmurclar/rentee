@@ -1,0 +1,107 @@
+Rentee API
+------------------------------------------------
+Current functionality (other than sign in/register):
+  1. Retrieve details of a landlord using their ID
+  2. Retrieve a list of matches associated with a tenant
+  3. Create a property
+  4. Record which way a tenant swiped on a property
+
+
+
+1. Retrieve details of a landlord using their ID
+.................................................
+example request: GET 'http://localhost:3000/landlord/1' (where 1 is the landlord ID)
+
+example of how to do a request like this:
+*************************************************
+in state controller:
+
+  angular.module('rentee.controllers')
+    .controller('CtrlName', function($scope, $stateParams, $http) {
+      landlordID = $stateParams.num;
+      if (landlordID < 0)
+        console.log("Error: num param not set correctly (value is less than 0)");
+
+      $http.get('http://localhost:3000/landlord/' + landlordID ).then( function successCallback(response){
+        // do something with the reponse containing the landlord details
+      }, function errorCallback(response){
+        console.log("Error in request for landlord details");
+      });
+    });
+*************************************************
+in app.js:
+
+.state('blah', {
+    url: '/blah',
+    controller: 'CtrlName',
+    templateUrl: 'templates/blah.html',
+    params: {
+      num: -1 //default value is -1
+    }
+  })
+*************************************************
+when linking to state blah (passes 1 as num parameter):
+  ui-sref="blah({num: 1})"
+*************************************************
+
+response will give you back all of the data which we store about a landlord (same as after login)
+
+
+
+
+
+2. Retrieve a list of matches associated with a tenant
+.................................................
+example request: GET 'http://localhost:3000/matches?tenant_id=1'
+
+You will notice this is a different format to the request in section 1 above. Here, tenant_id is a parameter in the request. The base url is 'http://localhost:3000/matches'.
+Look up 'http angular params' to find out how to add params to the request properly. It's very easy.
+
+You will need success and error callbacks here too. The response on success should give you a list of property ids, addresses and landlord ids. e.g.
+*************************************************
+[
+  {
+    "id": 4,
+    "landlord_id": 1,
+    "street": "Nassau St",
+    "town": "Rathfarnham",
+    "county": "Dublin"
+  },
+  {
+    "id": 5,
+    "landlord_id": 2,
+    "street": "Apt 6, Oak Avenue",
+    "town": "Balooth",
+    "county": "Leitrim"
+  }
+]
+*************************************************
+
+
+
+
+3. Create a property
+.................................................
+example request: POST 'http://localhost:3000/property?landlord_id=1&street=Nassau
+  St&town=Rathfarnham&county=Dublin&rent=250&n_baths=2&rent_allowance=true&ptrb=false&n_beds=5&avail_beds=2'
+
+Again, landlord_id, town, county, rent, etc are all parameters. The base url is 'http://localhost:3000/property'
+
+Response will return the property details back to you on success.
+
+
+
+
+4. Record which way a tenant swiped on a property
+.................................................
+example request: POST 'http://localhost:3000/approval?tenant_id=1&property_id=1&approved=true'
+
+tenant_id, property_id and approved are params to 'http://localhost:3000/approval'
+Set approved to true if they 'liked' the property, false if they rejected it
+
+Response will give you back the record of approval or rejection if it was successful.
+If you give it the same tenant and property combination more than once,
+it will give you an error since a tenant should only be able to swipe on a property once.
+
+Currently this request will record whether or not the tenant approved the property.
+Then, if they did approve it, it will automatically match the tenant with property.
