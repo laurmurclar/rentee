@@ -105,3 +105,17 @@ it will give you an error since a tenant should only be able to swipe on a prope
 
 Currently this request will record whether or not the tenant approved the property.
 Then, if they did approve it, it will automatically match the tenant with property.
+
+
+
+
+5. Search for a property
+.................................................
+example request: GET 'http://localhost:3000/property?town=Howth&county=Dublin&ptrb=t&rent_allowance=f&rent=650&n_baths=2&n_beds=1&t_id=1'
+
+town, county, ptrb, rent_allowance, rent, n_baths, n_beds and t_id are params to 'http://localhost:3000/property'
+t_id is the id of the currently logged in tenant.
+The form must include all fields in order for the request to work properly so try to have default values maybe or to make the search fields mandatory
+
+Response will give you back one property and all its details.
+You will need to resubmit the form after a tenant swipes on any property.
