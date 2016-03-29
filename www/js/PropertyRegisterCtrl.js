@@ -3,7 +3,9 @@ angular.module('rentee.controllers')
     $scope.handleRegBtnClick = function(form) {
       $auth.submitRegistration(
       {
-        address:                form.address,
+        street: form.street,
+        town: form.town,
+        county: form.county, 
         rent:                   form.rent,
         n_baths:                form.n_baths,
         retn_allowance:         form.rent_allowance,
