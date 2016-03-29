@@ -2,17 +2,19 @@
   <ion-content class="padding">
       <div class="list list-inset" ng-init="registrationForm = {}">
           <label class="item item-input">
-              <input type="text" placeholder="Town" ng-model="registrationForm.town">
+              <input type="text" placeholder="Town" ng-model="registrationForm.town" required>
           </label>
           <label class="item item-input">
-              <input type="text" placeholder="County" ng-model="registrationForm.county">
-<!-- Dunno how to put number at either end if slider-->
+              <input type="text" placeholder="County" ng-model="registrationForm.county" required>
           </label>
           <label class="item item-input">
-              <input type="number" placeholder="Number of Beds" ng-model="registrationForm.n_beds">
+              <input type="number" placeholder="Rent" ng-model="registrationForm.rent" required>
           </label>
           <label class="item item-input">
-              <input type="number" placeholder="Number of Baths" ng-model="registrationForm.n_baths">
+              <input type="number" placeholder="Number of Beds" ng-model="registrationForm.n_beds" required>
+          </label>
+          <label class="item item-input">
+              <input type="number" placeholder="Number of Baths" ng-model="registrationForm.n_baths" required>
           </label>
           <label class="item item-input">
               <ion-radio ng-model="registrationForm.rent_allowance" ng-value="'true'">Rent Allowance</ion-radio>
@@ -22,6 +24,8 @@
               <ion-radio ng-model="registrationForm.ptrb" ng-value="'true'">PTRB</ion-radio>
               <ion-radio ng-model="registrationForm.ptrb" ng-value="'false'">Not PTRB</ion-radio>
           </label>
+          <!-- cant test if required code works yet, as well as default values in controller-->
+          <!-- only 1 of the 4 buttons can be selected, wasnt like this before?? -->
       <button class="button button-block button-calm" ng-click="handleRegBtnClick(registrationForm)">Search</button>
       </div>
   </ion-content>
