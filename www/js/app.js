@@ -40,18 +40,44 @@ angular.module('rentee', ['ionic', 'rentee.controllers', 'ng-token-auth'])
 .constant('config', {
   BACKEND_URL: 'https://rentee-api.herokuapp.com'
 })
+.directive('hideTabs', function($rootScope) {
+    return {
+        restrict: 'A',
+        link: function($scope, $el) {
+            $rootScope.hideTabs = true;
+            $scope.$on('$destroy', function() {
+                $rootScope.hideTabs = false;
+            });
+        }
+    };
+})
 .config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/login');
 
-  $stateProvider.state('landlord-register', {
+  $stateProvider.state('landlord-profile', {
+    url: '/landlord-profile',
+    controller: 'LandlordProfileCtrl',
+    templateUrl: 'templates/landlord-profile.html'
+  })
+  .state('landlord-editProfile', {
+    url: '/landlord-editProfile',
+    controller: 'LandlordEditProfileCtrl',
+    templateUrl: 'templates/landlord-editProfile.html'
+  })
+  .state('landlord-register', {
     url: '/landlord-register',
     controller: 'LandlordRegisterCtrl',
     templateUrl: 'templates/landlord-register.html'
   })
-  .state('tenant-register', {
-    url: '/tenant-register',
-    controller: 'TenantRegisterCtrl',
-    templateUrl: 'templates/tenant-register.html'
+  .state('login', {
+    url: '/login',
+    controller: 'LoginCtrl',
+    templateUrl: 'templates/login.html'
+  })
+  .state('property-register', {
+    url: '/property-register',
+    controller: 'PropertyRegisterCtrl',
+    templateUrl: 'templates/property-register.html'
   })
   .state('register-choice', {
     url: '/register-choice',
@@ -67,26 +93,50 @@ angular.module('rentee', ['ionic', 'rentee.controllers', 'ng-token-auth'])
     controller: 'TenantProfileCtrl',
     templateUrl: 'templates/tenant-profile.html'
   })
-  .state('landlord-profile', {
-    url: '/landlord-profile',
-    controller: 'LandlordProfileCtrl',
-    templateUrl: 'templates/landlord-profile.html'
+  .state('tenant', {
+    url: '/tenant',
+    abstract: true,
+    templateUrl: "templates/tenant.html"
   })
-  .state('landlord-editProfile', {
-    url: '/landlord-editProfile',
-    controller: 'LandlordEditProfileCtrl',
-    templateUrl: 'templates/landlord-editProfile.html'
+  .state('tenant.profile', {
+    url: '/profile',
+      views: {
+        'profile-tab': {
+          templateUrl: 'templates/tenant-profile.html'
+        }
+      }
   })
-  .state('property-register', {
-    url: '/property-register',
-    controller: 'PropertyRegisterCtrl',
-    templateUrl: 'templates/property-register.html'
+  .state('tenant.search', {
+    url: '/search',
+      views: {
+        'search-tab': {
+          templateUrl: 'templates/search-settings.html'
+        }
+      }
   })
-  .state('login', {
-    url: '/login',
-    controller: 'LoginCtrl',
-    templateUrl: 'templates/login.html'
-  });
+  .state('tenant.matches', {
+    url: '/matches',
+      views: {
+        'matches-tab': {
+          templateUrl: 'templates/tenant-matches.html'
+          // controller: 'TenantMatchesCtrl'
+        }
+      }
+  })
+  .state('tenant-matches', {
+    url: '/tenant-matches',
+    controller: 'TenantMatchesCtrl',
+    templateUrl: 'templates/tenant-matches.html',
+    params: {
+      num: 2  //default value is -1
+    }
+  })
+  .state('tenant-register', {
+    url: '/tenant-register',
+    controller: 'TenantRegisterCtrl',
+    templateUrl: 'templates/tenant-register.html'
+  })
+
 });
 
 angular.module('rentee.controllers', []);
