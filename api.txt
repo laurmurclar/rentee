@@ -10,7 +10,7 @@ Current functionality (other than sign in/register):
 
 1. Retrieve details of a landlord using their ID
 .................................................
-example request: GET 'http://localhost:3000/landlord/1' (where 1 is the landlord ID)
+example request: GET 'https://rentee-api.herokuapp.com/landlord/1' (where 1 is the landlord ID)
 
 example of how to do a request like this:
 *************************************************
@@ -22,7 +22,7 @@ in state controller:
       if (landlordID < 0)
         console.log("Error: num param not set correctly (value is less than 0)");
 
-      $http.get('http://localhost:3000/landlord/' + landlordID ).then( function successCallback(response){
+      $http.get('https://rentee-api.herokuapp.com/landlord/' + landlordID ).then( function successCallback(response){
         // do something with the reponse containing the landlord details
       }, function errorCallback(response){
         console.log("Error in request for landlord details");
@@ -52,7 +52,7 @@ response will give you back all of the data which we store about a landlord (sam
 
 2. Retrieve a list of matches associated with a tenant
 .................................................
-example request: GET 'http://localhost:3000/matches?tenant_id=1'
+example request: GET 'https://rentee-api.herokuapp.com/matches?tenant_id=1'
 
 You will notice this is a different format to the request in section 1 above. Here, tenant_id is a parameter in the request. The base url is 'http://localhost:3000/matches'.
 Look up 'http angular params' to find out how to add params to the request properly. It's very easy.
@@ -82,10 +82,10 @@ You will need success and error callbacks here too. The response on success shou
 
 3. Create a property
 .................................................
-example request: POST 'http://localhost:3000/property?landlord_id=1&street=Nassau
+example request: POST 'https://rentee-api.herokuapp.com/property?landlord_id=1&street=Nassau
   St&town=Rathfarnham&county=Dublin&rent=250&n_baths=2&rent_allowance=true&ptrb=false&n_beds=5&avail_beds=2'
 
-Again, landlord_id, town, county, rent, etc are all parameters. The base url is 'http://localhost:3000/property'
+Again, landlord_id, town, county, rent, etc are all parameters. The base url is 'https://rentee-api.herokuapp.com/property'
 
 Response will return the property details back to you on success.
 
@@ -94,9 +94,9 @@ Response will return the property details back to you on success.
 
 4. Record which way a tenant swiped on a property
 .................................................
-example request: POST 'http://localhost:3000/approval?tenant_id=1&property_id=1&approved=true'
+example request: POST 'https://rentee-api.herokuapp.com/approval?tenant_id=1&property_id=1&approved=true'
 
-tenant_id, property_id and approved are params to 'http://localhost:3000/approval'
+tenant_id, property_id and approved are params to 'https://rentee-api.herokuapp.com/approval'
 Set approved to true if they 'liked' the property, false if they rejected it
 
 Response will give you back the record of approval or rejection if it was successful.
@@ -111,9 +111,9 @@ Then, if they did approve it, it will automatically match the tenant with proper
 
 5. Search for a property
 .................................................
-example request: GET 'http://localhost:3000/property?town=Howth&county=Dublin&ptrb=t&rent_allowance=f&rent=650&n_baths=2&n_beds=1&t_id=1'
+example request: GET 'https://rentee-api.herokuapp.com/property?town=Howth&county=Dublin&ptrb=t&rent_allowance=f&rent=650&n_baths=2&n_beds=1&t_id=1'
 
-town, county, ptrb, rent_allowance, rent, n_baths, n_beds and t_id are params to 'http://localhost:3000/property'
+town, county, ptrb, rent_allowance, rent, n_baths, n_beds and t_id are params to 'https://rentee-api.herokuapp.com/property'
 t_id is the id of the currently logged in tenant.
 The form must include all fields in order for the request to work properly so try to have default values maybe or to make the search fields mandatory
 
