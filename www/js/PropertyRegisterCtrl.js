@@ -1,6 +1,14 @@
 angular.module('rentee.controllers')
   .controller('PropertyRegisterCtrl', function($scope, $stateParams, $http) {
     $scope.handleRegBtnClick = function(form) {
+      if(form.rent_allowance== null)
+      {
+        form.rent_allowance='f';
+      }
+      if(form.ptrb== null)
+      {
+        form.ptrb='f';
+      }
       $scope.landlord = JSON.parse(window.localStorage['user'] || '{}');
       $http({
         url: "https://rentee-api.herokuapp.com/property", 

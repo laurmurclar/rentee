@@ -17,12 +17,12 @@
               <input type="number" placeholder="Number of Baths" ng-model="form.n_baths" required>
           </label>
           <label class="item item-input">
-              <ion-radio ng-model="form.rent_allowance" ng-value="'t'" required>Rent Allowance</ion-radio>
-              <ion-radio ng-model="form.rent_allowance" ng-value="'f'" required>No Rent Allowance Accepted</ion-radio>
+              <ion-checkbox ng-model="form.rent_allowance" ng-value="'t'" required>Rent Allowance</ion-checkbox>
+              <!--<ion-radio ng-model="form.rent_allowance" ng-value="'f'" required>No Rent Allowance Accepted</ion-radio>-->
           </label>
           <label class="item item-input">
-              <ion-radio ng-model="form.ptrb" ng-value="'t'" required>PTRB</ion-radio>
-              <ion-radio ng-model="form.ptrb" ng-value="'f'" required>Not PTRB</ion-radio>
+              <ion-checkbox ng-model="form.ptrb" ng-value="'t'" required>PTRB</ion-checkbox>
+              <!--<ion-checkbox ng-model="form.ptrb" ng-value="'f'" required>Not PTRB</ion-radio>-->
           </label>
           <!-- only 1 of the 4 buttons is ticked but it remembers the last clicked box for each setting -->
       <button class="button button-block button-calm" ng-click="handleRegBtnClick(form)">Search</button>

@@ -3,11 +3,15 @@ angular.module('rentee.controllers')
       $scope.handleRegBtnClick = function(form){
       //form.rent_allowance = 'f'; 
       //form.ptrb = 'f'; 
-      /*if(form.rent_allowance=='t')
+      if(form.rent_allowance== null)
       {
-        form.rent_allowance='t';
+        form.rent_allowance='f';
       }
-      if(form.ptrb='t')//??? wtf does this work?
+      if(form.ptrb== null)
+      {
+        form.ptrb='f';
+      }
+      /*if(form.ptrb='t')//??? wtf does this work?
       {
         form.ptrb='t';
       }*/
