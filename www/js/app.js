@@ -123,6 +123,10 @@ angular.module('rentee', ['ionic', 'rentee.controllers', 'ng-token-auth'])
         }
       }
   })
+  .state('success', {
+    url: '/success',
+    templateUrl: 'templates/success.html'
+  })
   .state('tenant-matches', {
     url: '/tenant-matches',
     controller: 'TenantMatchesCtrl',

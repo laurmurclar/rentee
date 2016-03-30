@@ -1,5 +1,5 @@
 angular.module('rentee.controllers')
-  .controller('TenantRegisterCtrl', function($scope, $auth) {
+  .controller('TenantRegisterCtrl', function($scope, $auth, $state) {
     $scope.handleRegBtnClick = function(form) {
       $auth.submitRegistration(
       {
@@ -13,7 +13,7 @@ angular.module('rentee.controllers')
       })
         .then(function(resp) {
           // handle success response
-          console.log("yay");
+          $state.go('success');
         })
         .catch(function(resp) {
           // handle error response
