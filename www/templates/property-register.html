@@ -2,22 +2,25 @@
   <ion-content class="padding">
       <div class="list list-inset" ng-init="form = {}">
           <label class="item item-input">
-              <input type="text" placeholder="Street" ng-model="form.f_street" required>
+              <input type="text" placeholder="Street" ng-model="form.street" >
           </label>
           <label class="item item-input">
-              <input type="text" placeholder="Town" ng-model="form.f_town" required>
+              <input type="text" placeholder="Town" ng-model="form.town" >
           </label>
           <label class="item item-input">
-              <input type="text" placeholder="County" ng-model="form.f_county" required>
+              <input type="text" placeholder="County" ng-model="form.county">
           </label>
           <label class="item item-input">
-              <input type="number" placeholder="Rent" ng-model="form.f_rent" required>
+              <input type="number" placeholder="Rent" ng-model="form.rent">
           </label>
           <label class="item item-input">
-              <input type="number" placeholder="Number of Baths" ng-model="form.n_baths" required>
+              <input type="number" placeholder="Number of Baths" ng-model="form.n_baths">
           </label>
           <label class="item item-input">
-              <input type="number" placeholder="Number of Beds" ng-model="form.n_beds" required>
+              <input type="number" placeholder="Number of Beds" ng-model="form.n_beds">
+          </label>
+          <label class="item item-input">
+              <input type="number" placeholder="Number of Available Beds" ng-model="form.avail_beds">
           </label>
           <label class="item item-input">
               <ion-radio ng-model="form.rent_allowance" ng-value="'t'">Rent Allowance</ion-radio>
