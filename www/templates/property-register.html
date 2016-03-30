@@ -1,34 +1,34 @@
 <ion-view view-title="Property Register" name="property-register-view">
   <ion-content class="padding">
-      <div class="list list-inset" ng-init="registrationForm = {}">
+      <div class="list list-inset" ng-init="form = {}">
           <label class="item item-input">
-              <input type="text" placeholder="Street" ng-model="registrationForm.f_street" required>
+              <input type="text" placeholder="Street" ng-model="form.f_street" required>
           </label>
           <label class="item item-input">
-              <input type="text" placeholder="Town" ng-model="registrationForm.f_town" required>
+              <input type="text" placeholder="Town" ng-model="form.f_town" required>
           </label>
           <label class="item item-input">
-              <input type="text" placeholder="County" ng-model="registrationForm.f_county" required>
+              <input type="text" placeholder="County" ng-model="form.f_county" required>
           </label>
           <label class="item item-input">
-              <input type="number" placeholder="Rent" ng-model="registrationForm.f_rent" required>
+              <input type="number" placeholder="Rent" ng-model="form.f_rent" required>
           </label>
           <label class="item item-input">
-              <input type="number" placeholder="Number of Baths" ng-model="registrationForm.n_baths" required>
+              <input type="number" placeholder="Number of Baths" ng-model="form.n_baths" required>
           </label>
           <label class="item item-input">
-              <input type="number" placeholder="Number of Beds" ng-model="registrationForm.n_beds" required>
+              <input type="number" placeholder="Number of Beds" ng-model="form.n_beds" required>
           </label>
           <label class="item item-input">
-              <ion-radio ng-model="registrationForm.rent_allowance" ng-value="'true'">Rent Allowance</ion-radio>
-              <ion-radio ng-model="registrationForm.rent_allowance" ng-value="'false'">No Rent Allowance Accepted</ion-radio>
+              <ion-radio ng-model="form.rent_allowance" ng-value="'t'">Rent Allowance</ion-radio>
+              <ion-radio ng-model="form.rent_allowance" ng-value="'f'">No Rent Allowance Accepted</ion-radio>
           </label>
           <label class="item item-input">
-              <!--<input type="text" placeholder="PTRB" ng-model="registrationForm.ptrb">-->
-              <ion-radio ng-model="registrationForm.ptrb" ng-value="'true'">PTRB</ion-radio>
-              <ion-radio ng-model="registrationForm.ptrb" ng-value="'false'">Not PTRB</ion-radio>
+              <!--<input type="text" placeholder="PTRB" ng-model="form.ptrb">-->
+              <ion-radio ng-model="form.ptrb" ng-value="'t'">PTRB</ion-radio>
+              <ion-radio ng-model="form.ptrb" ng-value="'f'">Not PTRB</ion-radio>
           </label>
       </div>
-      <button class="button button-block button-calm" ng-click="handleRegBtnClick(registrationForm)">Register</button>
+      <button class="button button-block button-calm" ng-click="handleRegBtnClick(form)">Register</button>
   </ion-content>
 </ion-view>

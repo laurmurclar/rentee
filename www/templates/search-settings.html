@@ -1,32 +1,31 @@
 <ion-view view-title="Search Settings" name="search-settings">
   <ion-content class="padding">
-      <div class="list list-inset" ng-init="registrationForm = {}">
+      <div class="list list-inset" ng-init="form = {}">
           <label class="item item-input">
-              <input type="text" placeholder="Town" ng-model="registrationForm.town" required>
+              <input type="text" placeholder="Town" ng-model="form.town" required>
           </label>
           <label class="item item-input">
-              <input type="text" placeholder="County" ng-model="registrationForm.county" required>
+              <input type="text" placeholder="County" ng-model="form.county" required>
           </label>
           <label class="item item-input">
-              <input type="number" placeholder="Rent" ng-model="registrationForm.rent" required>
+              <input type="number" placeholder="Rent" ng-model="form.rent" required>
           </label>
           <label class="item item-input">
-              <input type="number" placeholder="Number of Beds" ng-model="registrationForm.n_beds" required>
+              <input type="number" placeholder="Number of Beds" ng-model="form.n_beds" required>
           </label>
           <label class="item item-input">
-              <input type="number" placeholder="Number of Baths" ng-model="registrationForm.n_baths" required>
+              <input type="number" placeholder="Number of Baths" ng-model="form.n_baths" required>
           </label>
           <label class="item item-input">
-              <ion-radio ng-model="registrationForm.rent_allowance" ng-value="'true'">Rent Allowance</ion-radio>
-              <ion-radio ng-model="registrationForm.rent_allowance" ng-value="'false'">No Rent Allowance Accepted</ion-radio>
+              <ion-radio ng-model="form.rent_allowance" ng-value="'t'" required>Rent Allowance</ion-radio>
+              <ion-radio ng-model="form.rent_allowance" ng-value="'f'" required>No Rent Allowance Accepted</ion-radio>
           </label>
           <label class="item item-input">
-              <ion-radio ng-model="registrationForm.ptrb" ng-value="'true'">PTRB</ion-radio>
-              <ion-radio ng-model="registrationForm.ptrb" ng-value="'false'">Not PTRB</ion-radio>
+              <ion-radio ng-model="form.ptrb" ng-value="'t'" required>PTRB</ion-radio>
+              <ion-radio ng-model="form.ptrb" ng-value="'f'" required>Not PTRB</ion-radio>
           </label>
-          <!-- cant test if required code works yet, as well as default values in controller-->
-          <!-- only 1 of the 4 buttons can be selected, wasnt like this before?? -->
-      <button class="button button-block button-calm" ng-click="handleRegBtnClick(registrationForm)">Search</button>
+          <!-- only 1 of the 4 buttons is ticked but it remembers the last clicked box for each setting -->
+      <button class="button button-block button-calm" ng-click="handleRegBtnClick(form)">Search</button>
       </div>
   </ion-content>
 </ion-view>
