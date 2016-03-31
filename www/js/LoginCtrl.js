@@ -28,7 +28,7 @@ angular.module('rentee.controllers')
       })
       .catch(function(sign_in) {
         // handle error response
-        console.log("No");
+        alert("Invalid credentials");
       });
     };
   });

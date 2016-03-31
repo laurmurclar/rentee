@@ -17,7 +17,7 @@ angular.module('rentee.controllers')
         })
         .catch(function(resp) {
           // handle error response
-          console.log("nay");
+          alert("Invalid entry");
         });
     };
   });
