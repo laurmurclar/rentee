@@ -13,12 +13,12 @@ angular.module('rentee.controllers')
 
       $scope.tenant = JSON.parse(window.localStorage['user'] || '{}');
       $http({
-        url: "https://rentee-api.herokuapp.com/property", 
+        url: "https://rentee-api.herokuapp.com/property",
         method: "GET",
-        params: 
+        params:
         {
           town:                form.town,
-          county:                form.county, 
+          county:                form.county,
           rent:                   form.rent,
           n_beds:                 form.n_beds,
           n_baths:                form.n_baths,
@@ -28,13 +28,19 @@ angular.module('rentee.controllers')
         }
     }).then( function successCallback(response){
         // do something with the reponse containing the landlord details
-        var lastSearchResult = response.data;
-        window.localStorage['searchResult'] = JSON.stringify(lastSearchResult);
+        var lastSearchResult = JSON.stringify(response.data);
 
-        var userTemp = JSON.parse(window.localStorage['searchResult'] || '{}');
-        console.log(JSON.stringify(userTemp));
+        if (lastSearchResult == 'null'){
+          console.log("was null");
+          $state.go('no-property-results');
+        } else {
+          window.localStorage['searchResult'] = lastSearchResult;
 
-        $state.go('property-profile');
+          var userTemp = JSON.parse(window.localStorage['searchResult'] || '{}');
+          console.log(JSON.stringify(userTemp));
+
+          $state.go('property-profile');
+        }
 
       }, function errorCallback(response){
         console.log("Error in search request");

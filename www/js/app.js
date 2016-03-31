@@ -145,6 +145,10 @@ angular.module('rentee', ['ionic', 'rentee.controllers', 'ng-token-auth'])
     controller: 'TenantRegisterCtrl',
     templateUrl: 'templates/tenant-register.html'
   })
+  .state('no-property-results', {
+    url: '/no-property-results',
+    templateUrl: 'templates/no-property-results.html'
+  })
 
 });
 
