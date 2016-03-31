@@ -1,5 +1,5 @@
 angular.module('rentee.controllers')
-  .controller('PropertyProfileCtrl', function($scope, $auth) {
+  .controller('PropertyProfileCtrl', function($scope, $auth, $http) {
 
     $scope.search = JSON.parse(window.localStorage['searchResult']);
 
@@ -9,4 +9,20 @@ angular.module('rentee.controllers')
     if ($scope.search.ptrb == true) $scope.search.ptrb = 'yes';
     else if ($scope.search.ptrb == false) $scope.search.ptrb = 'no';
 
+    var user = JSON.parse(window.localStorage['user']);
+    $scope.sendReaction = function(isApproved){
+      $http({
+        url: 'https://rentee-api.herokuapp.com/approval',
+        method: 'POST',
+        params: {
+          tenant_id:      user.id,
+          property_id:    $scope.search.id,
+          approved:       isApproved
+        }
+      }).then(function(resp) {
+        alert("Sent approval");
+      },function(errorResp){
+        alert("Error with approval request");
+      });
+    };
   });

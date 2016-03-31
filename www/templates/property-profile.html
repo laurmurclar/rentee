@@ -1,12 +1,18 @@
 <ion-view view-title="Property Profile" name="property-profile">
   <ion-content class="padding">
     <h2> {{ search.street }}, {{ search.town }}, {{ search.county }} </h2>
+    
     </br>
+
     <h4> Rent: €{{ search.rent }}/m </h4>
     <h4> Beds Available: {{ search.avail_beds }}/{{ search.n_beds}} </h4>
     <h4> Baths: {{ search.n_baths }} </h4>
     <h4> Rent Allowance: {{ search.rent_allowance }} </h4>
     <h4> PTRB: {{ search.ptrb }} </h4>
-    <p>Test: {{ search }}</p>
+
+    </br>
+
+    <button class="button button-block button-balanced" ng-click="sendReaction(true)">Approve</button>
+    <button class="button button-block button-assertive" ng-click="sendReaction(false)">Reject</button>
   </ion-content>
 </ion-view>
