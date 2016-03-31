@@ -26,24 +26,23 @@ angular.module('rentee.controllers')
           ptrb:                   form.ptrb,
           t_id:                   $scope.tenant.id
         }
-    }).then( function successCallback(response){
-        // do something with the reponse containing the landlord details
-        var lastSearchResult = JSON.stringify(response.data);
+      }).then( function successCallback(response){
+          var lastSearchResult = JSON.stringify(response.data);
 
-        if (lastSearchResult == 'null'){
-          console.log("was null");
-          $state.go('no-property-results');
-        } else {
-          window.localStorage['searchResult'] = lastSearchResult;
+          if (lastSearchResult == 'null'){
+            // There was no properties which matched the criteria
+            $state.go('no-property-results');
+          }
+          else {
+            // Save the most recent search criteria (for reuse) and the result (for displaying on next screen)
+            window.localStorage['searchResult'] = lastSearchResult;
+            window.localStorage['searchForm'] = JSON.stringify(form);
 
-          var userTemp = JSON.parse(window.localStorage['searchResult'] || '{}');
-          console.log(JSON.stringify(userTemp));
+            $state.go('property-profile');
+          }
 
-          $state.go('property-profile');
-        }
-
-      }, function errorCallback(response){
-        console.log("Error in search request");
+        }, function errorCallback(response){
+          console.log("Error in search request");
       });
   }
     });
