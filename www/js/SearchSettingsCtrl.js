@@ -1,8 +1,7 @@
 angular.module('rentee.controllers')
-  .controller('SearchSettingsCtrl', function($scope, $stateParams, $http) {
+  .controller('SearchSettingsCtrl', function($scope, $stateParams, $http, $state) {
       $scope.handleRegBtnClick = function(form){
-      //form.rent_allowance = 'f'; 
-      //form.ptrb = 'f'; 
+
       if(form.rent_allowance== null)
       {
         form.rent_allowance='f';
@@ -11,10 +10,7 @@ angular.module('rentee.controllers')
       {
         form.ptrb='f';
       }
-      /*if(form.ptrb='t')//??? wtf does this work?
-      {
-        form.ptrb='t';
-      }*/
+
       $scope.tenant = JSON.parse(window.localStorage['user'] || '{}');
       $http({
         url: "https://rentee-api.herokuapp.com/property", 
@@ -32,9 +28,16 @@ angular.module('rentee.controllers')
         }
     }).then( function successCallback(response){
         // do something with the reponse containing the landlord details
-        console.log("works");
+        var lastSearchResult = response.data;
+        window.localStorage['searchResult'] = JSON.stringify(lastSearchResult);
+
+        var userTemp = JSON.parse(window.localStorage['searchResult'] || '{}');
+        console.log(JSON.stringify(userTemp));
+
+        $state.go('property-profile');
+
       }, function errorCallback(response){
-        console.log("Error in request for landlord details");
+        console.log("Error in search request");
       });
   }
     });

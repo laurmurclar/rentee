@@ -1,5 +1,12 @@
 <ion-view view-title="Property Profile" name="property-profile">
   <ion-content class="padding">
-    <h1>Property Profile</h1>
+    <h2> {{ search.street }}, {{ search.town }}, {{ search.county }} </h2>
+    </br>
+    <h4> Rent: €{{ search.rent }}/m </h4>
+    <h4> Beds Available: {{ search.avail_beds }}/{{ search.n_beds}} </h4>
+    <h4> Baths: {{ search.n_baths }} </h4>
+    <h4> Rent Allowance: {{ search.rent_allowance }} </h4>
+    <h4> PTRB: {{ search.ptrb }} </h4>
+    <p>Test: {{ search }}</p>
   </ion-content>
 </ion-view>

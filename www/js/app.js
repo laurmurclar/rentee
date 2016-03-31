@@ -79,6 +79,11 @@ angular.module('rentee', ['ionic', 'rentee.controllers', 'ng-token-auth'])
     controller: 'PropertyRegisterCtrl',
     templateUrl: 'templates/property-register.html'
   })
+  .state('property-profile', {
+    url: '/property-profile',
+    controller: 'PropertyProfileCtrl',
+    templateUrl: 'templates/property-profile.html'
+  })
   .state('register-choice', {
     url: '/register-choice',
     templateUrl: 'templates/register-choice.html'
