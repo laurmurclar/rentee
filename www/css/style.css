@@ -94,5 +94,41 @@
   height: 1px;
   background: #CECECE;
 }
-				
-		
+
+.prop-profile-info {
+  color: white;
+  padding: 25px;
+  position: relative;
+  margin-top: 15px;
+  font-size: 40px;
+}
+
+.prop-profile-info #toilet, .prop-profile-info #bed {
+  margin-right: 5px;
+  width: 12%;
+}
+
+.prop-profile-info #bed {
+  margin-left: 10px;
+}
+
+.prop-profile-info h2 {
+  color: white;
+  letter-spacing: 4px;
+  padding-bottom: 12px;
+}
+
+.prop-profile-info span {
+  display: block;
+  font-size: 20px;
+  color: white;
+  letter-spacing: 2px;
+}
+
+.prop-profile-info p {
+  font-size: 20px;
+}
+
+.prop-profile-info div {
+  margin-bottom: 20px;
+}

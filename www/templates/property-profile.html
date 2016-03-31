@@ -1,19 +1,27 @@
 <ion-view view-title="Property Profile" name="property-profile">
   <ion-content class="padding">
-    <h2> {{ search.street }}, {{ search.town }}, {{ search.county }} </h2>
-
-    </br>
-
-    <h4> Rent: €{{ search.rent }}/m </h4>
-    <h4> Beds Available: {{ search.avail_beds }}/{{ search.n_beds}} </h4>
-    <h4> Baths: {{ search.n_baths }} </h4>
-    <h4> Rent Allowance: {{ search.rent_allowance }} </h4>
-    <h4> PTRB: {{ search.ptrb }} </h4>
-
-    </br>
+    <div class="profile-card text-center">
+    <img class="img" src="img/dublin_house.jpg">
+            <div class="prop-profile-info">
+              <h2 class="hvr-underline-from-center">{{ search.street }}, {{ search.town }}, {{ search.county }}<span>Rent: €{{ search.rent }}/m</span></h2>
+              <div>
+                <img id="toilet" src="img/toilet-50.png">{{ search.n_baths }}
+                <img id="bed" src="img/bed-50.png">{{ search.avail_beds }}/{{ search.n_beds}}
+              </div>
+              <div>
+                <p>
+                  Rent Allowance: {{ search.rent_allowance }}
+                </p>
+                <p>
+                  PTRB: {{ search.ptrb }}
+                </p>
+              </div>
+            </div>
+    </div>
 
     <button class="button button-block button-balanced" ng-click="sendReaction(true)">Approve</button>
     <button class="button button-block button-assertive" ng-click="sendReaction(false)">Reject</button>
     <button class="button button-block button-calm" ui-sref="search-settings">Change Search Settings</button>
+
   </ion-content>
 </ion-view>
