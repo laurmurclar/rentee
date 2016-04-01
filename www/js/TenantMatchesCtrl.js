@@ -1,6 +1,6 @@
 angular.module('rentee.controllers')
-    .controller('TenantMatchesCtrl', function($scope, $stateParams, $http) {
-      tenantID = $stateParams.num;
+    .controller('TenantMatchesCtrl', function($scope, $auth, $stateParams, $http) {
+      tenantID = $stateParams.num; // fix this to take in stateParams from the tenant id
       if (tenantID < 0)
         console.log("Error: num param not set correctly (value is less than 0)");
 
@@ -11,8 +11,15 @@ angular.module('rentee.controllers')
         var matchesTest = matches;
         console.log("Success");
         // store response using local storage
+        console.log(matchesTest);
         window.localStorage['matches'] = JSON.stringify(matchesTest);
+        $scope.matches = JSON.parse(window.localStorage['matches'] || '{}');
+
       }, function errorCallback(response){
         console.log("Error in request for landlord details");
       });
+
+      
+
+
     });

@@ -137,7 +137,15 @@ angular.module('rentee', ['ionic', 'rentee.controllers', 'ng-token-auth'])
     controller: 'TenantMatchesCtrl',
     templateUrl: 'templates/tenant-matches.html',
     params: {
-      num: 2  //default value is -1
+      num: -1  //default value is -1
+    }
+  })
+  .state('tenant-landlord-profile', {
+    url: '/tenant-landlord-profile',
+    controller: 'TenantLandlordProfileCtrl',
+    templateUrl: 'templates/tenant-landlord-profile.html',
+    params: {
+      num: -1
     }
   })
   .state('tenant-register', {

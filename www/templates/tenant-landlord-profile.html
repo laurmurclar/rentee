@@ -1,28 +1,16 @@
 <ion-view view-title="Tenant Landlord Profile" name="tenant-landlord-profile">
   <ion-content class="padding">
-
-    <h1>Name</h1>
-    <h2>{{user.f_name}} {{user.l_name}}</h2>
-
-    <h1>Number</h1>
-    <h2>need to add in</h2>
-
-    <h1>Email</h1>
-    <h2>{{user.email}}</h2>
-
-    <h3>Test output {{user}}</h3>
-
         <div class="profile-card text-center">
         <img class="img" src="/img/cover.jpg">
                 <div class="profile-info">
                   <img class="profile-pic" src="/img/profile.jpg">
-                  <h2 class="hvr-underline-from-center">{{user.f_name}} {{user.l_name}}<span>{{user.email}}</span></h2>
-                  <div>Test output {{user}}</div>
+                  <h2 class="hvr-underline-from-center">{{landlord.data.f_name}} {{landlord.data.l_name}}<span>{{landlord.data.email}}</span></h2>
+                  <!-- above needs tweaking -->
+                  <div>Test output {{landlord.data}}</div>
                   <a href="http://www.twitter.com"><i class="ion-social-twitter"></i></a>
                   <a href="mailto:burnsm3@tcd.ie"><i class="ion-ios-email"></i></a>
                   <a href="http://www.facebook.com"><i class="ion-social-facebook"></i></a>
                 </div>
         </div>
-
    </ion-content>
 </ion-view>
