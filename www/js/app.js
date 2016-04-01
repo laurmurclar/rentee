@@ -165,11 +165,24 @@ angular.module('rentee', ['ionic', 'rentee.controllers', 'ng-token-auth'])
         }
       }
   })
+  .state('tenant.property-profile', {
+    url: '/property-profile',
+      views: {
+        'search-tab': {
+          templateUrl: 'templates/property-profile.html',
+          controller: 'PropertyProfileCtrl'
+        }
+      }
+  })
   .state('tenant.landlord-profile', {
     url: '/landlord-profile',
       views: {
         'matches-tab': {
-          templateUrl: 'templates/tenant-landlord-profile'
+          templateUrl: 'templates/tenant-landlord-profile.html',
+          controller: 'TenantLandLordProfileCtrl',
+          params: {
+            num: -1
+          }
         }
       }
   })
