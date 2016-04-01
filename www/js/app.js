@@ -179,11 +179,11 @@ angular.module('rentee', ['ionic', 'rentee.controllers', 'ng-token-auth'])
       views: {
         'matches-tab': {
           templateUrl: 'templates/tenant-landlord-profile.html',
-          controller: 'TenantLandLordProfileCtrl',
-          params: {
-            num: -1
-          }
+          controller: 'TenantLandlordProfileCtrl',
         }
+      },
+      params: {
+        num: -1
       }
   })
 });

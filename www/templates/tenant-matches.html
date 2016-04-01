@@ -1,7 +1,7 @@
 <ion-view view-title="Tenant Matches" name="tenant-matches">
   <ion-content class="padding">
     <ion-list>
-      <ion-item ng-repeat="id in matches.data" ui-sref="tenant-landlord-profile({num: {{id.landlord_id}}})">
+      <ion-item ng-repeat="id in matches.data" ui-sref="tenant.landlord-profile({num: id.landlord_id})">
         {{id.landlord_id}} {{id.street}} {{id.town}} {{id.county}}
         <!-- landlord_id needs to be change to landlord name -->
       </ion-item>

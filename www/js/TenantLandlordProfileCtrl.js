@@ -1,6 +1,6 @@
 angular.module('rentee.controllers')
     .controller('TenantLandlordProfileCtrl', function($scope, $auth, $stateParams, $http) {
-      landlordID = $stateParams.num; // fix this to take in stateParams from the tenant id
+      var landlordID = $stateParams.num; // fix this to take in stateParams from the tenant id
       if (landlordID < 0)
         console.log("Error: num param not set correctly (value is less than 0)");
 
