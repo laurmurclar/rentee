@@ -4,7 +4,8 @@ angular.module('rentee.controllers')
       if (tenantID < 0)
         console.log("Error: num param not set correctly (value is less than 0)");
 
-      $http.get('https://rentee-api.herokuapp.com/matches?tenant_id=' + tenantID ).then(function successCallback(matches){
+      $http.get('https://rentee-api.herokuapp.com/matches?tenant_id=' + 2 ).then(function successCallback(matches){
+        //  + tenantID ).then(function successCallback(matches){
         // do something with the reponse containing the landlord details
         // put the matches into an array/list for the tenant matches
         // with landlord-id do another req for the landlord: showing the name
@@ -19,7 +20,7 @@ angular.module('rentee.controllers')
         console.log("Error in request for landlord details");
       });
 
-      
+
 
 
     });

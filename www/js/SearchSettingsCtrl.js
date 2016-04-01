@@ -31,7 +31,7 @@ angular.module('rentee.controllers')
 
           if (lastSearchResult == 'null'){
             // There was no properties which matched the criteria
-            $state.go('no-property-results');
+            $state.go('tenant.no-property-results');
           }
           else {
             // Save the most recent search criteria (for reuse) and the result (for displaying on next screen)

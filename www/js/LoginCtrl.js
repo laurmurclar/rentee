@@ -23,6 +23,7 @@ angular.module('rentee.controllers')
         var configName = userTemp['configName'];
         console.log(configName);
 
+        // if (userTemp.configName === "tenant") $state.go('tenant.profile');
         if (userTemp.configName === "tenant") $state.go('tenant-profile');
         else if (userTemp.configName === "landlord") $state.go('landlord-profile');
       })
