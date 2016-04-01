@@ -140,7 +140,16 @@ angular.module('rentee', ['ionic', 'rentee.controllers', 'ng-token-auth'])
     url: '/search',
       views: {
         'search-tab': {
-          templateUrl: 'templates/search-settings.html'
+          templateUrl: 'templates/search-settings.html',
+          controller: 'SearchSettingsCtrl'
+        }
+      }
+  })
+  .state('tenant.no-property-results', {
+    url: '/no-property-results',
+      views: {
+        'search-tab': {
+          templateUrl: 'templates/no-property-results.html'
         }
       }
   })
@@ -148,8 +157,11 @@ angular.module('rentee', ['ionic', 'rentee.controllers', 'ng-token-auth'])
     url: '/matches',
       views: {
         'matches-tab': {
-          templateUrl: 'templates/tenant-matches.html'
-          // controller: 'TenantMatchesCtrl'
+          templateUrl: 'templates/tenant-matches.html',
+          controller: 'TenantMatchesCtrl',
+          params: {
+            num: -1  //default value is -1
+          }
         }
       }
   })
