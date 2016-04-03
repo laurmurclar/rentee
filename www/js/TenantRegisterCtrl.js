@@ -6,6 +6,7 @@ angular.module('rentee.controllers')
         f_name:                 form.f_name,
         l_name:                 form.l_name,
         email:                  form.email,
+        ph_no:                  form.ph_no,
         password:               form.password,
         password_confirmation:  form.password_confirmation
       }, {
