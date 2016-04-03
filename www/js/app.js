@@ -125,6 +125,7 @@ angular.module('rentee', ['ionic', 'rentee.controllers', 'ng-token-auth'])
 
   .state('tenant', {
     url: '/tenant',
+    cache: false,
     abstract: true,
     templateUrl: "templates/tenant.html"
   })
@@ -155,6 +156,7 @@ angular.module('rentee', ['ionic', 'rentee.controllers', 'ng-token-auth'])
   })
   .state('tenant.matches', {
     url: '/matches',
+    cache: false,
       views: {
         'matches-tab': {
           templateUrl: 'templates/tenant-matches.html',
