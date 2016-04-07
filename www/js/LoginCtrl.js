@@ -15,7 +15,6 @@ angular.module('rentee.controllers')
         var user = sign_in;
         // store response using local storage
         window.localStorage['user'] = JSON.stringify(user);
-        //localStorage.setItem('user', JSON.stringify(resp.data));
 
         var userTemp = JSON.parse(window.localStorage['user'] || '{}');
         console.log(JSON.stringify(userTemp));
@@ -23,7 +22,6 @@ angular.module('rentee.controllers')
         var configName = userTemp['configName'];
         console.log(configName);
 
-        // if (userTemp.configName === "tenant") $state.go('tenant.profile');
         if (userTemp.configName === "tenant") $state.go('tenant.profile');
         else if (userTemp.configName === "landlord") $state.go('landlord-profile');
       })
